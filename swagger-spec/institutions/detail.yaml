@@ -1,1 +1,4 @@
-# /institutions/{institution_id}/
+get:
+  summary: Retrieve an institution
+  description: >-
+    Retrieves the detail of an institution

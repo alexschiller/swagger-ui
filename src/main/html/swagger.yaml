@@ -80,6 +80,17 @@ paths:
   /preprints/{preprint_id}/:
     $ref: '/swagger-spec/preprints/detail.yaml'
 
+###################
+#   INSTITUTIONS  #
+###################
+
+  /institutions/:
+    $ref: '/swagger-spec/institutions/list.yaml'
+
+  /institutions/{institution_id}/:
+    $ref: '/swagger-spec/institutions/detail.yaml'
+
+
 #########################
 #   MODEL DEFINITIONS   #
 #########################
@@ -87,6 +98,9 @@ paths:
 definitions:
   Preprint:
     $ref: '/swagger-spec/preprints/definition.yaml'
+
+  Institutions:
+    $ref: '/swagger-spec/institutions/definition.yaml'
 
 securityDefinitions:
   basic:
