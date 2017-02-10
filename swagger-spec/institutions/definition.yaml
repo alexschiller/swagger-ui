@@ -1,0 +1,45 @@
+# Institutions Model Definition
+type: object
+title: Institutions
+required:
+  - id
+properties:
+  id:
+    description: The unique ID of the institution.
+    readOnly: true
+    type: string
+
+  auth_url:
+    description: Url used to authenticate institution specific login.
+    readOnly: true
+    type: string
+
+  logo_path:
+    description: Static path to the institution specific logo.
+    readOnly: true
+    type: string
+
+  name:
+    description: Full name of the institution.
+    readOnly: true
+    type: string
+
+  description:
+    description: Description of the institution.
+    readOnly: true
+    type: string
+
+  nodes:
+    description: Nodes affiliated with the institution.
+    readOnly: true
+    type: string
+
+  users:
+    description: Users affiliated with the institution.
+    readOnly: true
+    type: string
+
+  registrations:
+    description: Registrations affiliated with the institution.
+    readOnly: true
+    type: string

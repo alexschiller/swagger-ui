@@ -80,6 +80,28 @@ paths:
   /preprints/{preprint_id}/:
     $ref: 'preprints/detail.yaml'
 
+####################
+#   INSTITUTIONS   #
+####################
+
+  /institutions/{institutions_id}/:
+    $ref: 'institutions/detail.yaml'
+
+  /institutions/:
+    $ref: 'institutions/list.yaml'
+
+  /institutions/{institutions_id}/users/:
+    $ref: 'institutions/users_list.yaml'
+
+  /institutions/{institutions_id}/nodes/:
+    $ref: 'institutions/nodes_list.yaml'
+
+  /institutions/{institutions_id}/registrations/:
+    $ref: 'institutions/registrations_list.yaml'
+
+  /institutions/{institutions_id}/relationships/nodes/:
+    $ref: 'institutions/nodes_relationships.yaml'
+
 #########################
 #   MODEL DEFINITIONS   #
 #########################
@@ -87,6 +109,9 @@ paths:
 definitions:
   Preprint:
     $ref: 'preprints/definition.yaml'
+
+  Institutions:
+    $ref: 'institutions/definition.yaml'
 
 securityDefinitions:
   basic:

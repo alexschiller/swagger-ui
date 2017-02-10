@@ -1,1 +1,75 @@
 # /institutions/{institution_id}/users/
+get:
+  summary: List all institution affiliated users
+  description: >-
+    This is an object representing users affiliated with an institution. 
+    You can retrieve it to see a paginated list of all users affiliated with an institution.
+
+    ##Query Params
+
+    ###Page: `page=<Int>`
+
+    Page number of results to view. Defaults to page 1.
+
+    ###Field Name: `filter[<fieldname>]=<Str>`
+
+    Fields and values to filter the search results on.
+
+    ###Filterable Fields: `id`, `full_name`, `given_name`, `middle_names`, `family_name`
+
+    Fieldnames that Institutions can be filtered based on.
+
+  parameters:
+    - description: ''
+      required: false
+      type: string
+      name: page
+      in: query
+    - description: ''
+      required: false
+      type: string
+      name: sort
+      in: query
+  tags:
+    - Institutions
+  operationId: institutions_users_list
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: array
+        items:
+          $ref: /swagger-spec/users/definition.yaml
+      examples:
+        application/json:
+          data:
+            - relationships:
+                nodes:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/users/cdi38/nodes/
+                      meta: {}
+                institutions:
+                  links:
+                    self:
+                      href: https://api.osf.io/v2/users/cdi38/relationships/institutions/
+                      meta: {}
+                    related:
+                      href: https://api.osf.io/v2/users/cdi38/institutions/
+                      meta: {}
+              links:
+                self: https://api.osf.io/v2/users/cdi38/
+                html: https://osf.io/cdi38/
+                profile_image: https://secure.gravatar.com/avatar/37fc491096861dae49fe23ba665af56b?d=identicon
+              attributes:
+                family_name: Nosek
+                suffix: ''
+                locale: en_US
+                date_registered: '2012-05-31T05:29:01.320000'
+                middle_names: A.
+                given_name: Brian
+                full_name: Brian A. Nosek
+                active: true
+                timezone: America/New_York
+              type: users
+              id: cdi38

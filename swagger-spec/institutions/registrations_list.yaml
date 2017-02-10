@@ -1,1 +1,156 @@
 # /institutions/{institution_id}/registrations/
+get:
+  summary: List all institution affiliated registrations
+  description: >-
+    This is an object representing registrations affiliated with an institution. 
+    You can retrieve it to see a paginated list of all registrations affiliated with an institution.
+
+    ##Query Params
+
+    ###Page: `page=<Int>`
+
+    Page number of results to view. Defaults to page 1.
+
+    ###Field Name: `filter[<fieldname>]=<Str>`
+
+    Fields and values to filter the search results on.
+
+    ###Filterable Fields: `id`, `title`, `description`, `public`, `tags`, `category`, `date_created`, `date_modified`, `root`, `parent`, `contributors`, `preprint`
+
+    Fieldnames that Institutions can be filtered based on.
+
+  parameters:
+    - description: ''
+      required: false
+      type: string
+      name: page
+      in: query
+    - description: ''
+      required: false
+      type: string
+      name: sort
+      in: query
+  tags:
+    - Institutions
+  operationId: institutions_registration_list
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: array
+        items:
+          $ref: /swagger-spec/registrations/definition.yaml
+      examples:
+        application/json:
+          data:
+            - relationships:
+                files:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/files/
+                      meta: {}
+                view_only_links:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/view_only_links/
+                      meta: {}
+                citation:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/citation/
+                      meta: {}
+                license:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/
+                      meta: {}
+                contributors:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/contributors/
+                      meta: {}
+                forks:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/forks/
+                      meta: {}
+                root:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/
+                      meta: {}
+                identifiers:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/identifiers/
+                      meta: {}
+                comments:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/comments/?filter%5Btarget%5D=xemzv
+                      meta: {}
+                node_links:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/node_links/
+                      meta: {}
+                linked_nodes:
+                  links:
+                    self:
+                      href: https://api.osf.io/v2/nodes/xemzv/relationships/linked_nodes/
+                      meta: {}
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/linked_nodes/
+                      meta: {}
+                wikis:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/wikis/
+                      meta: {}
+                affiliated_institutions:
+                  links:
+                    self:
+                      href: https://api.osf.io/v2/nodes/xemzv/relationships/institutions/
+                      meta: {}
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/institutions/
+                      meta: {}
+                children:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/children/
+                      meta: {}
+                logs:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/nodes/xemzv/logs/
+                      meta: {}
+              links:
+                self: https://api.osf.io/v2/registrations/xemzv/
+                html: https://osf.io/xemzv/
+              attributes:
+                category: project
+                fork: false
+                preprint: false
+                description: This project contains the materials and proposal for the upcoming OASPA
+                  2016 Conference
+                current_user_permissions:
+                - read
+                date_modified: '2016-12-14T20:48:58.147000'
+                title: COASPA 2016, Center for Open Science
+                collection: false
+                registration: true
+                date_created: '2016-05-26T14:56:27.310000'
+                current_user_can_comment: true
+                node_license:
+                  copyright_holders:
+                  - ''
+                  year: '2016'
+                public: true
+                tags:
+                - TOP Guidelines
+                - Open Practice Badges
+                - Registered Reports
+                - Prereg Challenge
+              type: nodes
+              id: xemzv

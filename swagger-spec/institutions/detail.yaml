@@ -1,1 +1,51 @@
 # /institutions/{institution_id}/
+get:
+  summary: Institution detail page
+  description: >-
+    This is an object representing a verified Institution affiliated with COS.
+    You can retrieve it to see details about a single institution.
+
+
+    Users can be affiliated with an Insitution. Institution affiliated users can choose to 
+    affiliate nodes where they have write permission. Nodes that are registered maintain 
+    institutional affiliation. Users, Nodes, and Registrations affiliated with an institution can
+    be found through the url found in the Institution's relationships section.
+
+  tags:
+    - Institutions
+  operationId: institutions_detail
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: array
+        items:
+          $ref: /swagger-spec/institutions/definition.yaml
+      examples:
+        application/json:
+          data:
+            - relationships:
+                nodes:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/institutions/cos/nodes/
+                      meta: {}
+                users:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/institutions/cos/users/
+                      meta: {}
+                registrations:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/institutions/cos/registrations/
+                      meta: {}
+              links:
+                self: https://api.osf.io/v2/institutions/cos/
+              attributes:
+                auth_url: null
+                logo_path: /static/img/institutions/shields/cos-shield.png
+                name: Center For Open Science
+                description: COS is a non-profit technology company providing free and open services to increase inclusivity and transparency of research. Find out more at <a href="https://cos.io">cos.io</a>.
+              type: institutions
+              id: cos
