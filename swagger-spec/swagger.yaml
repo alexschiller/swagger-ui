@@ -102,14 +102,8 @@ paths:
   /preprints/{preprint_id}/:
     $ref: 'preprints/detail.yaml'
 
-#########################
-#   MODEL DEFINITIONS   #
-#########################
+  /preprints/{preprint_id}/citation/:
+    $ref: 'preprints/citation_detail.yaml'
 
-definitions:
-  Preprint:
-    $ref: 'preprints/definition.yaml'
-
-securityDefinitions:
-  basic:
-    type: basic
+  /preprints/{preprint_id}/citation/{style_id}/:
+    $ref: 'preprints/citation_style_detail.yaml'
