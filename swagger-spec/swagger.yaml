@@ -77,11 +77,11 @@ paths:
   /comments/{comment_id}/:
     $ref: 'comments/detail.yaml'
 
-  /comments/{comment_id}/reports/:
-    $ref: 'comments/reports_list.yaml'
+  # /comments/{comment_id}/reports/:
+  #   $ref: 'comments/reports_list.yaml'
 
-  /comments/{comment_id}/reports/{user_id}/:
-    $ref: 'comments/report_detail.yaml'
+  # /comments/{comment_id}/reports/{user_id}/:
+  #   $ref: 'comments/report_detail.yaml'
 
 ####################
 #   INSTITUTIONS   #

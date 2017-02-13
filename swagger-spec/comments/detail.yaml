@@ -2,14 +2,17 @@
 get:
   summary: Retrieve a comment
   description: >-
-    Retrieves the details of a single comment. Comments are associated with a node. A GET request 
-    to `/nodes/<node_id>/comments/` will return a paginated list of all comments associated with that node.
-    Comments also have a `target` that defines what part of the node the comment is connected.
-    Targets can be the node itself, a file on a node, a node wiki (so long as the wiki has content), or another comment (a comment reply).
-    Comments are created through a POST request to the `/nodes/<node_id>/comments/` route and not through `/comments/`. 
+    Retrieves the details of a comment
+
+    ####Returns
+
+    Returns JSON with a `data` key containing the representation of the requested
+    comment, if the request was successful. 
 
 
-    Registrations are a special instance of a node and also support comments via `/registrations/<registration_id>/comments/`.
+    If the request is unsuccessful, JSON with an `errors` key containing
+    information about the failure will be returned. Refer to the [list of error codes]()
+    to understand why this request may have failed.
 
   parameters:
     - description: ''
@@ -64,7 +67,7 @@ get:
                 is_ham: false
                 has_children: false
                 modified: false
-                content: "comments\r\n\r\n"
+                content: "comments about things"
                 has_report: false
                 is_abuse: false
                 date_created: '2017-02-10T20:44:03.185000'
@@ -73,9 +76,20 @@ get:
               id: twpgrpv78d8s
 
 put:
-  summary: Delete a comment
+  summary: Modify a comment
   description: >-
-    Delete a comment.
+      Updates the specified comment by setting the values of the parameters passed.
+      Any parameters not provided will be left unchanged.
+
+      #### Returns
+
+      Returns JSON with a `data` key containing the new representation of the updated
+      comment, if the request is successful.
+
+
+      If the request is unsuccessful, JSON with an `errors` key containing
+      information about the failure will be returned. Refer to the [list of error codes]()
+      to understand why this request may have failed.
 
   parameters:
     - description: ''
@@ -94,15 +108,24 @@ put:
       examples:
         application/json:
           data:
-          type: comments
-          id: twpgrpv78d8s
-          attributes:
-            content: "changed comment content"
+            type: comments
+            id: twpgrpv78d8s
+            attributes:
+              content: "changed comment content"
 
 delete:
-  summary: Modify a comment
+  summary: Delete a comment
   description: >-
-    Modify the contents of a comment.
+    Deletes a comment. This action can be undone by issuing a PUT request against the /links/self URL, setting `deleted` to `False`.
+
+    #### Returns
+
+    If the request is successful, no content is returned.
+
+
+    If the request is unsuccessful, a dictionary with an `errors` property containing
+    information about the failure will be returned. Refer to the [list of error codes]()
+    to understand why this request may have failed.
 
   parameters:
     - description: ''
@@ -115,11 +138,4 @@ delete:
   operationId: comments_delete
   responses:
     '204':
-      description: 'OK'
-      schema:
-        $ref: 'definition.yaml'
-      examples:
-        application/json:
-          data:
-          type: comments
-          id: twpgrpv78d8s
+      description: 'No content'

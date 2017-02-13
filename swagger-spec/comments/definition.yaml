@@ -5,56 +5,101 @@ required:
   - id
 properties:
   id:
-    description: The ID of the comment.
-    readOnly: true
     type: string
-  content:
-    description: Content of the comment
-    readOnly: false
-    type: string
-  date_created:
-    description: iso8601 timepstamp when the comment was created
-    format: date-time
     readOnly: true
-    type: string
-  date_modified:
-    description: iso8601 timepstamp when the comment was modified
-    format: date-time
-    readOnly: true
-    type: string
-  modified:
-    description: Has this comment been edited?
-    readOnly: true
-    type: boolean
-  deleted:
-    description: Is this comment deleted?
-    readOnly: true
-    type: boolean
-  is_abuse:
-    description: Is this comment flagged or confirmed spam?
-    readOnly: true
-    type: boolean
-  is_ham:
-    description: Has admin checked the legitimacy of this comment?
-    readOnly: true
-    type: boolean
-  has_report:
-    description: Has the current user reported this as spam?
-    readOnly: true
-    type: boolean
-  has_children:
-    description: Does this comment have replies?
-    readOnly: true
-    type: boolean
-  can_edit:
-    description: Can the current user edit this comment?
-    readOnly: true
-    type: boolean
-  page:
-    description: What page type is this comment on?
-    readOnly: true
-    type: string
+    description: 'The identifier of the comment entity.'
   type:
-    description: Object type (comments)
-    readOnly: true
     type: string
+    readOnly: true
+    description: 'The type identifier of the preprint entity (`comments`).'
+  attributes:
+    type: object
+    readOnly: false
+    description: 'The properties of the comment entity.'
+    properties:
+      can_edit:
+        type: boolean
+        readOnly: true
+        description: Can the current user edit this comment?
+      content:
+        type: string
+        readOnly: false
+        description: Content of the comment.
+      date_created:
+        type: string
+        format: date-time
+        readOnly: true
+        description: 'The time at which the comment was created, as an iso8601 formatted timestamp.'
+      date_modified:
+        type: string
+        format: date-time
+        readOnly: true
+        description: 'The time at which the comment was last modified, as an iso8601 formatted timestamp.'
+      modified:
+        type: boolean
+        readOnly: true
+        description: Has this comment been edited?
+      deleted:
+        type: boolean
+        readOnly: true
+        description: Is this comment deleted?
+      is_abuse:
+        type: boolean
+        readOnly: true
+        description: Is this comment flagged or confirmed spam?
+      is_ham:
+        type: boolean
+        readOnly: true
+        description: Has admin checked the legitimacy of this comment?
+      has_report:
+        type: boolean
+        readOnly: true
+        description: Has the current user reported this as spam?
+      has_children:
+        type: boolean
+        readOnly: true
+        description: Does this comment have replies?
+      page:
+        description: What page type is this comment on?
+        readOnly: true
+        type: string
+  relationships:
+    type: object
+    readOnly: false
+    description: 'URLs to other entities or entity collections that have a relationship to the comment entity.'
+    properties:
+      node:
+        type: string
+        format: URL
+        readOnly: true
+        description: 'The URL representation of the node the comment''s node'
+      replies:
+        type: string
+        format: URL
+        readOnly: true
+        description: 'The URL representation of the node the comment''s replies'
+      target:
+        type: string
+        format: URL
+        readOnly: true
+        description: 'The URL representation of the node the comment''s target'
+      reports:
+        type: string
+        format: URL
+        readOnly: true
+        description: 'The URL representation of the node the comment''s reports'
+      users:
+        type: string
+        format: URL
+        readOnly: true
+        description: 'The URL representation of the node the comment''s users'
+  links:
+    type: object
+    readOnly: true
+    description: 'URLs to alternative representations of the comment entity.'
+    properties:
+      self:
+        type: string
+        format: URL
+        readOnly: true
+        description: 'A link to the detail page for the comment.'
