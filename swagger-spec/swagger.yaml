@@ -83,6 +83,28 @@ paths:
   /comments/{comment_id}/reports/{user_id}/:
     $ref: 'comments/report_detail.yaml'
 
+####################
+#   INSTITUTIONS   #
+####################
+
+  /institutions/:
+    $ref: 'institutions/list.yaml'
+
+  /institutions/{institutions_id}/:
+    $ref: 'institutions/detail.yaml'
+
+  /institutions/{institutions_id}/users/:
+    $ref: 'institutions/users_list.yaml'
+
+  /institutions/{institutions_id}/nodes/:
+    $ref: 'institutions/nodes_list.yaml'
+
+  /institutions/{institutions_id}/registrations/:
+    $ref: 'institutions/registrations_list.yaml'
+
+  # /institutions/{institutions_id}/relationships/nodes/:
+  #   $ref: 'institutions/nodes_relationships.yaml'
+
 #################
 #   PREPRINTS   #
 #################
@@ -93,14 +115,8 @@ paths:
   /preprints/{preprint_id}/:
     $ref: 'preprints/detail.yaml'
 
-#########################
-#   MODEL DEFINITIONS   #
-#########################
+  /preprints/{preprint_id}/citation/:
+    $ref: 'preprints/citation_detail.yaml'
 
-definitions:
-  Preprint:
-    $ref: 'preprints/definition.yaml'
-
-securityDefinitions:
-  basic:
-    type: basic
+  /preprints/{preprint_id}/citation/{style_id}/:
+    $ref: 'preprints/citation_style_detail.yaml'
