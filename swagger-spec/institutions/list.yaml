@@ -17,6 +17,7 @@ get:
     This request should never return an error.
 
     #### Filtering
+
     You can optionally request that the response only include institutions that
     match your filters by utilizing the `filter` query parameter, e.g.
     https://api.osf.io/v2/institutions/?filter[id]=cos.

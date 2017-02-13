@@ -1,6 +1,6 @@
 # /institutions/{institution_id}/nodes/
 get:
-  summary: Retrieve nodes affiliated with an institution
+  summary: Retrieve affiliated nodes
   description: >-
     A paginated list of all nodes affiliated with an institution.
 
@@ -8,18 +8,26 @@ get:
 
     JSON with keys for `data` and `links`.
 
+
     The `data` key contains an array of 10 nodes.
     Each resource in the array is a separate users object.
     The `links` property contains JSON of links that can be used
     for [pagination](http://jsonapi.org/format/1.0/#fetching-pagination).
 
+
+    If the request is unsuccessful, a dictionary with an `errors` property containing
+    information about the failure will be returned. Refer to the [list of error codes]()
+    to understand why this request may have failed.
+
+
     #### Filtering
+
     You can optionally request that the response only include institutions that
     match your filters by utilizing the `filter` query parameter, e.g.
-    https://api.osf.io/v2/institutions/?filter[id]=cos.
+    https://api.osf.io/v2/institutions/cos/nodes?filter[title]=science.
 
-    Institutions may be filtered by their `id`, `title`, `description`, `public`, `tags`, `category`, `date_created`, `date_modified`, `root`, `parent`, `contributors`, and `preprint`
 
+    Nodes may be filtered by their `id`, `title`, `description`, `public`, `tags`, `category`, `date_created`, `date_modified`, `root`, `parent`, `contributors`, and `preprint`
   parameters:
     - in: path
       type: string
