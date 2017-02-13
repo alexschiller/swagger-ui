@@ -1,41 +1,28 @@
 # /institutions/
 get:
-  summary: List all institutions
+  summary: Retrieve all institutions
   description: >-
-    This is an object representing verified Institutions affiliated with COS.
-    You can retrieve it to see a paginated list of all institutions.
 
+    A paginated list of all verified institutions.
 
-    Users can be affiliated with an Insitution. Institution affiliated users can choose to 
-    affiliate nodes where they have write permission. Nodes that are registered maintain 
-    institutional affiliation. Users, Nodes, and Registrations affiliated with an institution can
-    be found through the url found in the Institution's relationships section.
+    #### Returns
 
-    ##Query Params
+    JSON with keys for `data` and `links`.
 
-    ###Page: `page=<Int>`
+    The `data` key contains an array of 10 institutions.
+    Each resource in the array is a separate institution object.
+    The `links` property contains JSON of links that can be used
+    for [pagination](http://jsonapi.org/format/1.0/#fetching-pagination).
 
-    Page number of results to view. Defaults to page 1.
+    This request should never return an error.
 
-    ###Field Name: `filter[<fieldname>]=<Str>`
+    #### Filtering
+    You can optionally request that the response only include institutions that
+    match your filters by utilizing the `filter` query parameter, e.g.
+    https://api.osf.io/v2/institutions/?filter[id]=cos.
 
-    Fields and values to filter the search results on.
+    Institutions may be filtered by their `id`, `name`, and `auth_url`
 
-    ###Filterable Fields: `id`, `name`, `auth_url`
-
-    Fieldnames that Institutions can be filtered based on.
-
-  parameters:
-    - description: ''
-      required: false
-      type: string
-      name: page
-      in: query
-    - description: ''
-      required: false
-      type: string
-      name: sort
-      in: query
   tags:
     - Institutions
   operationId: institutions_list

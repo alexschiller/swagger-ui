@@ -1,16 +1,25 @@
 # /institutions/{institution_id}/
 get:
-  summary: Institution detail page
+  summary: Retrieve an institution
   description: >-
-    This is an object representing a verified Institution affiliated with COS.
-    You can retrieve it to see details about a single institution.
+    Retrieves the details of an institution
+
+    #### Returns
+
+    Returns JSON with a `data` key containing the representation of the requested
+    institution, if the request was successful. 
 
 
-    Users can be affiliated with an Insitution. Institution affiliated users can choose to 
-    affiliate nodes where they have write permission. Nodes that are registered maintain 
-    institutional affiliation. Users, Nodes, and Registrations affiliated with an institution can
-    be found through the url found in the Institution's relationships section.
+    If the request is unsuccessful, JSON with an `errors` key containing
+    information about the failure will be returned. Refer to the [list of error codes]()
+    to understand why this request may have failed.
 
+  parameters:
+    - in: path
+      type: string
+      required: true
+      name: institution_id
+      description: 'The unique identifier of the institution you wish to retrieve.'
   tags:
     - Institutions
   operationId: institutions_detail

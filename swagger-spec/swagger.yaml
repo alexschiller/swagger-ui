@@ -70,16 +70,6 @@ paths:
         - Base
       operationId: base_read
 
-#################
-#   PREPRINTS   #
-#################
-
-  /preprints/:
-    $ref: 'preprints/list.yaml'
-
-  /preprints/{preprint_id}/:
-    $ref: 'preprints/detail.yaml'
-
 ####################
 #   INSTITUTIONS   #
 ####################
@@ -102,6 +92,16 @@ paths:
   /institutions/{institutions_id}/relationships/nodes/:
     $ref: 'institutions/nodes_relationships.yaml'
 
+#################
+#   PREPRINTS   #
+#################
+
+  /preprints/:
+    $ref: 'preprints/list.yaml'
+
+  /preprints/{preprint_id}/:
+    $ref: 'preprints/detail.yaml'
+
 #########################
 #   MODEL DEFINITIONS   #
 #########################
@@ -109,9 +109,6 @@ paths:
 definitions:
   Preprint:
     $ref: 'preprints/definition.yaml'
-
-  Institutions:
-    $ref: 'institutions/definition.yaml'
 
 securityDefinitions:
   basic:

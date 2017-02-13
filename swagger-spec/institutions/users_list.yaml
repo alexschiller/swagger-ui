@@ -1,35 +1,31 @@
 # /institutions/{institution_id}/users/
 get:
-  summary: List all institution affiliated users
+  summary: Retrieve users affiliated with an institution
   description: >-
-    This is an object representing users affiliated with an institution. 
-    You can retrieve it to see a paginated list of all users affiliated with an institution.
+    A paginated list of all users affiliated with an institution.
 
-    ##Query Params
+    #### Returns
 
-    ###Page: `page=<Int>`
+    JSON with keys for `data` and `links`.
 
-    Page number of results to view. Defaults to page 1.
+    The `data` key contains an array of 10 users.
+    Each resource in the array is a separate users object.
+    The `links` property contains JSON of links that can be used
+    for [pagination](http://jsonapi.org/format/1.0/#fetching-pagination).
 
-    ###Field Name: `filter[<fieldname>]=<Str>`
+    #### Filtering
+    You can optionally request that the response only include institutions that
+    match your filters by utilizing the `filter` query parameter, e.g.
+    https://api.osf.io/v2/institutions/?filter[id]=cos.
 
-    Fields and values to filter the search results on.
-
-    ###Filterable Fields: `id`, `full_name`, `given_name`, `middle_names`, `family_name`
-
-    Fieldnames that Institutions can be filtered based on.
+    Institutions may be filtered by their `id`, `full_name`, `given_name`, `middle_names`, and `family_name`
 
   parameters:
-    - description: ''
-      required: false
+    - in: path
       type: string
-      name: page
-      in: query
-    - description: ''
-      required: false
-      type: string
-      name: sort
-      in: query
+      required: true
+      name: institution_id
+      description: 'The unique identifier of the institution you wish to retrieve.'
   tags:
     - Institutions
   operationId: institutions_users_list
