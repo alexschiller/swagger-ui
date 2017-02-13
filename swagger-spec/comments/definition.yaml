@@ -1,0 +1,60 @@
+# Comment Model Definition
+type: object
+title: Comment
+required:
+  - id
+properties:
+  id:
+    description: The ID of the comment.
+    readOnly: true
+    type: string
+  content:
+    description: Content of the comment
+    readOnly: false
+    type: string
+  date_created:
+    description: iso8601 timepstamp when the comment was created
+    format: date-time
+    readOnly: true
+    type: string
+  date_modified:
+    description: iso8601 timepstamp when the comment was modified
+    format: date-time
+    readOnly: true
+    type: string
+  modified:
+    description: Has this comment been edited?
+    readOnly: true
+    type: boolean
+  deleted:
+    description: Is this comment deleted?
+    readOnly: true
+    type: boolean
+  is_abuse:
+    description: Is this comment flagged or confirmed spam?
+    readOnly: true
+    type: boolean
+  is_ham:
+    description: Has admin checked the legitimacy of this comment?
+    readOnly: true
+    type: boolean
+  has_report:
+    description: Has the current user reported this as spam?
+    readOnly: true
+    type: boolean
+  has_children:
+    description: Does this comment have replies?
+    readOnly: true
+    type: boolean
+  can_edit:
+    description: Can the current user edit this comment?
+    readOnly: true
+    type: boolean
+  page:
+    description: What page type is this comment on?
+    readOnly: true
+    type: string
+  type:
+    description: Object type (comments)
+    readOnly: true
+    type: string
