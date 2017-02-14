@@ -19,7 +19,7 @@ properties:
       can_edit:
         type: boolean
         readOnly: true
-        description: Can the current user edit this comment?
+        description: Whether or not the current user has permission to edit this comment
       content:
         type: string
         readOnly: false
@@ -37,29 +37,29 @@ properties:
       modified:
         type: boolean
         readOnly: true
-        description: Has this comment been edited?
+        description: Whether or not the comment has been edited.
       deleted:
         type: boolean
         readOnly: true
-        description: Is this comment deleted?
+        description: Whether or not the comment is deleted.
       is_abuse:
         type: boolean
         readOnly: true
-        description: Is this comment flagged or confirmed spam?
+        description: Whether or not the comment is flagged or confirmed spam.
       is_ham:
         type: boolean
         readOnly: true
-        description: Has admin checked the legitimacy of this comment?
+        description: Whether or not an admin checked the legitimacy of this comment.
       has_report:
         type: boolean
         readOnly: true
-        description: Has the current user reported this as spam?
+        description: Whether or not the comment the current user reported this as spam.
       has_children:
         type: boolean
         readOnly: true
-        description: Does this comment have replies?
+        description: Whether or not the comment has replies.
       page:
-        description: What page type is this comment on?
+        description: 'Page type the comment is on (`node`, `registration`, `wiki`, `files`)'
         readOnly: true
         type: string
   relationships:
@@ -71,27 +71,27 @@ properties:
         type: string
         format: URL
         readOnly: true
-        description: 'The URL representation of the node the comment''s node'
+        description: 'A relationship to the node the comment is on'
       replies:
         type: string
         format: URL
         readOnly: true
-        description: 'The URL representation of the node the comment''s replies'
+        description: 'A relationship to the replies to the comment'
       target:
         type: string
         format: URL
         readOnly: true
-        description: 'The URL representation of the node the comment''s target'
+        description: 'A relationship to the target of the comment'
       reports:
         type: string
         format: URL
         readOnly: true
-        description: 'The URL representation of the node the comment''s reports'
-      users:
+        description: 'A relationship to the reports connected to the comment'
+      user:
         type: string
         format: URL
         readOnly: true
-        description: 'The URL representation of the node the comment''s users'
+        description: 'A relationship to the user who created the comment'
   links:
     type: object
     readOnly: true

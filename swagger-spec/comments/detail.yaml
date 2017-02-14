@@ -76,7 +76,7 @@ get:
             id: twpgrpv78d8s
 
 put:
-  summary: Modify a comment
+  summary: Update a comment
   description: >-
       Updates the specified comment by setting the values of the parameters passed.
       Any parameters not provided will be left unchanged.
@@ -96,7 +96,7 @@ put:
       type: string
       required: true
       name: comment_id
-      description: 'The unique identifier of the comment you wish to modify.'
+      description: 'The unique identifier of the comment you wish to update.'
   tags:
     - Comments
   operationId: comments_put
@@ -109,14 +109,14 @@ put:
         application/json:
           data:
             type: comments
-            id: twpgrpv78d8s
+            id: '{comment_id}'
             attributes:
               content: "changed comment content"
 
 delete:
   summary: Delete a comment
   description: >-
-    Deletes a comment. This action can be undone by issuing a PUT request against the /links/self URL, setting `deleted` to `False`.
+    Deletes a comment. This action can be undone by setting deleted to False in a comment update request.
 
     #### Returns
 
