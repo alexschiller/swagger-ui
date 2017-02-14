@@ -97,21 +97,24 @@ put:
       required: true
       name: comment_id
       description: 'The unique identifier of the comment you wish to update.'
+    - in: body
+      name: body
+      required: true
+      schema:
+        type: object
+        example:
+          data:
+            type: comments
+            id: '{comment_id}'
+            attributes:
+              content: "changed comment content"
+
   tags:
     - Comments
   operationId: comments_put
   responses:
     '200':
       description: 'OK'
-      schema:
-        $ref: 'definition.yaml'
-      examples:
-        application/json:
-          data:
-            type: comments
-            id: '{comment_id}'
-            attributes:
-              content: "changed comment content"
 
 delete:
   summary: Delete a comment
