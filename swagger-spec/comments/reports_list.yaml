@@ -5,11 +5,11 @@ get:
     Retrieve a paginated list of your reports for a comment.
 
   parameters:
-    - description: ''
-      required: true
+    - in: path
       type: string
+      required: true
       name: comment_id
-      in: path
+      description: 'The unique identifier of the comment from which you want reports.'
   tags:
     - Comments
   operationId: comments_report_list
@@ -36,11 +36,11 @@ post:
     Message text is not required.
 
   parameters:
-    - description: ''
-      required: true
+    - in: path
       type: string
+      required: true
       name: comment_id
-      in: path
+      description: 'The unique identifier of the comment from which you want to create a report.'
   tags:
     - Comments
   operationId: comments_report_create

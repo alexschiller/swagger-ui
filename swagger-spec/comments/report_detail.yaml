@@ -5,11 +5,16 @@ get:
     Retrieve a specific report. 
 
   parameters:
-    - description: ''
-      required: true
+    - in: path
       type: string
+      required: true
       name: comment_id
-      in: path
+      description: 'The unique identifier of the comment from which you want reports.'
+    - in: path
+      type: string
+      required: true
+      name: user_id
+      description: 'The unique identifier of the user from which you want a report.'
   tags:
     - Comments
   operationId: comments_report_detail_get
@@ -35,11 +40,16 @@ put:
     Modify a specific comment report.
 
   parameters:
-    - description: ''
-      required: true
+    - in: path
       type: string
+      required: true
       name: comment_id
-      in: path
+      description: 'The unique identifier of the comment from which you want to modify a report.'
+    - in: path
+      type: string
+      required: true
+      name: user_id
+      description: 'The unique identifier of the user from which you want to modify a report.'
   tags:
     - Comments
   operationId: comment_report_detail_put
@@ -60,14 +70,19 @@ put:
 delete:
   summary: Delete comment report
   description: >-
-    Modify a specific comment report.
+    Delete a specific comment report.
 
   parameters:
-    - description: ''
-      required: true
+    - in: path
       type: string
+      required: true
       name: comment_id
-      in: path
+      description: 'The unique identifier of the comment from which you want to delete a report.'
+    - in: path
+      type: string
+      required: true
+      name: user_id
+      description: 'The unique identifier of the user from which you want to delete a report.'
   tags:
     - Comments
   operationId: comment_report_detail_put

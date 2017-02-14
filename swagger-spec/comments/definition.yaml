@@ -1,4 +1,3 @@
-# Comment Model Definition
 type: object
 title: Comment
 required:
