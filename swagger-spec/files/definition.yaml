@@ -1,5 +1,5 @@
 type: object
-title: Institution
+title: File
 properties:
   id:
     type: string
@@ -8,11 +8,11 @@ properties:
   type:
     type: string  
     readOnly: true
-    description: 'The type identifier of the files entity (`files`).'
+    description: 'The type identifier of the file entity (`files`).'
   attributes:
     type: object
     readOnly: false
-    description: ''
+    description:  'The properties of the file entity.'
     properties:
       extra:
         type: object
@@ -79,7 +79,6 @@ properties:
         description: 'An array of tags on the file (strings).'
       size:
         type: integer
-        format: URL
         readOnly: true
         description: 'Size of the file in bytes.'
   relationships:
@@ -110,7 +109,7 @@ properties:
   links:
     type: object
     readOnly: true
-    description: URLs to alternative representations of the institutions entity.
+    description: URLs to alternative representations of the file entity.
     properties:
       info:
         type: string
