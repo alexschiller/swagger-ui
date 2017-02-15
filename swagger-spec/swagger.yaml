@@ -70,6 +70,13 @@ paths:
         - Base
       operationId: base_read
 
+#############
+#   FILES   #
+#############
+
+  # /files/{file_id}/:
+  #   $ref: 'files/detail.yaml'
+
 ####################
 #   INSTITUTIONS   #
 ####################
