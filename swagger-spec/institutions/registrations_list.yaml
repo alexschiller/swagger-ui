@@ -1,6 +1,6 @@
 # /institutions/{institution_id}/registrations/
 get:
-  summary: Retrieve affiliated registrations
+  summary: List all affiliated registrations
   description: >-
     A paginated list of all registrations affiliated with an institution.
 
@@ -31,6 +31,7 @@ get:
   tags:
     - Institutions
   operationId: institutions_registration_list
+  x-response-schema: Registration
   responses:
     '200':
       description: OK
