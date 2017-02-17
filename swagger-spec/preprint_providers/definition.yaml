@@ -7,11 +7,11 @@ properties:
     description: 'The identifier of the preprint provider entity.'
   type:
     type: string
-    readOnly: false
+    readOnly: true
     description: 'The type identifier of the preprint provider entity (`preprint_providers`).'
   attributes:
     type: object
-    readOnly: false
+    readOnly: true 
     description: 'The properties of the preprint provider entity.'
     properties:
       social_instagram:
@@ -60,7 +60,7 @@ properties:
         description: 'Name of the preprint provider.'
   relationships:
     type: object
-    readOnly: false
+    readOnly: true
     description: 'Links to other entities or entity collections that have a relationship to the preprint provider.'
     properties:
       licenses_acceptable:
@@ -71,11 +71,11 @@ properties:
       taxonomies:
         type: string
         format: URL
-        readOnly: false
+        readOnly: true
         description: 'A link to the taxonomies the preprint provider allows.'
       preprints:
         type: string
-        readOnly: false
+        readOnly: true
         description: 'A link to the preprint list page for the preprint provider.'
   links:
     type: object

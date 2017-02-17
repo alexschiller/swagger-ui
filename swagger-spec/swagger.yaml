@@ -155,6 +155,9 @@ paths:
   /preprint_providers/{preprint_provider_id}/:
     $ref: 'preprint_providers/detail.yaml'
 
+  /preprint_providers/{preprint_provider_id}/preprints/:
+    $ref: 'preprint_providers/preprints_list.yaml'
+
   /preprint_providers/{preprint_provider_id}/taxonomies/:
     $ref: 'preprint_providers/taxonomies_list.yaml'
 

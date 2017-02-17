@@ -1,6 +1,6 @@
 # /preprint_providers/
 get:
-  summary: Retrieve all preprint providers
+  summary: List all preprint providers
   description: >-
 
     A paginated list of all preprint providers.

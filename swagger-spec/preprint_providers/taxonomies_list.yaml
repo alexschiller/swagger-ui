@@ -7,7 +7,7 @@ parameters:
     description: 'The unique identifier of the preprint provider.'
 
 get:
-  summary: Retrieve all preprint provider taxonomies
+  summary: List all taxonomies
   description: >-
 
     A paginated list of the taxonomies for a preprint provider.
@@ -25,16 +25,9 @@ get:
     for [pagination](http://jsonapi.org/format/1.0/#fetching-pagination).
 
 
-    This request should never return an error.
-
-    #### Filtering
-
-    You can optionally request that the response only include preprint providers that
-    match your filters by utilizing the `filter` query parameter, e.g.
-    https://api.osf.io/v2/preprint_providers/?filter[id]=osf.
-
-
-    Preprint Providers may be filtered by their `id`, `name`,  and `description`
+    If the request is unsuccessful, JSON with an `errors` key containing
+    information about the failure will be returned. Refer to the [list of error codes]()
+    to understand why this request may have failed.
 
   tags:
     - Preprint Providers

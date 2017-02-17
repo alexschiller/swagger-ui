@@ -6,7 +6,7 @@ parameters:
     name: preprint_provider_id
     description: 'The unique identifier of the preprint provider.'
 get:
-  summary: Retrieve all preprint provider licenses
+  summary: List all licenses
   description: >-
 
     A paginated list of the licenses allowed bya preprint provider.
@@ -33,9 +33,8 @@ get:
   responses:
     '200':
       description: 'OK'
-      # commented out until licenses exists
-      # schema:
-      #   $ref: '../licenses/definition.yaml'
+      schema:
+        $ref: '../licenses/definition.yaml'
       examples:
         application/json:
           data:
