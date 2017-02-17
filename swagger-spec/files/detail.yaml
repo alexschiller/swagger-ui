@@ -20,12 +20,6 @@ get:
     Files can be modified through the Waterbutler API routes found in `links` (`new_folder`, `move`, `upload`, `download`, and `delete`).
 
 
-    #### Get Info (files, folders)
-
-
-    The contents of a folder or details of a particular file can be retrieved by performing a GET request against the info link. The response will be a standard OSF response format with the OSF File attributes.
-
-
     #### Download (files)
 
 
@@ -81,6 +75,7 @@ get:
   tags:
     - Files
   operationId: files_detail
+  x-response-schema: File
   responses:
     '200':
       description: OK

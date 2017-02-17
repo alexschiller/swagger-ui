@@ -115,7 +115,7 @@ properties:
         type: string
         format: URL
         readOnly: true
-        description: 'The canonical API endpoint for the folder''s contents or file''s most recent version'
+        description: 'A link to the page to view a file''s information or a folder''s contents.'
       self:
         type: string
         format: URL

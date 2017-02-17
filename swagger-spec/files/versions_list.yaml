@@ -31,6 +31,7 @@ get:
   tags:
     - Files
   operationId: files_versions
+  x-response-schema: File Version
   responses:
     '200':
       description: OK
