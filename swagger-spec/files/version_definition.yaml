@@ -25,7 +25,7 @@ properties:
   links:
     type: object
     readOnly: true
-    description: URLs to alternative representations of the file version entity.
+    description: Links to alternative representations of the file version entity.
     properties:
       self:
         type: string
