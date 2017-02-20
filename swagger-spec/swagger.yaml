@@ -168,8 +168,17 @@ paths:
   /nodes/{node_id}/citation/{style_id}/:
     $ref: 'nodes/styled_citation_detail.yaml'
 
+  /nodes/{node_id}/contributors/:
+    $ref: 'nodes/contributors_list.yaml'
+
+  /nodes/{node_id}/contributors/{user_id}/:
+    $ref: 'nodes/contributor_detail.yaml'
+
   /nodes/{node_id}/forks/:
     $ref: 'nodes/forks_list.yaml'
+
+  /nodes/{node_id}/wikis/:
+    $ref: 'nodes/wikis_list.yaml'
 
   /nodes/{node_id}/preprints/:
     $ref: 'nodes/preprints_list.yaml'
@@ -190,6 +199,7 @@ paths:
   /preprints/{preprint_id}/citation/{style_id}/:
     $ref: 'preprints/citation_style_detail.yaml'
 
+
   ##########################
   #   PREPRINT PROVIDERS   #
   ##########################
@@ -208,3 +218,35 @@ paths:
 
   /preprint_providers/{preprint_provider_id}/licenses/:
     $ref: 'preprint_providers/licenses_list.yaml'
+
+  #############
+  #   USERS   #
+  #############
+
+  /users/:
+    $ref: 'users/list.yaml'
+
+  /users/{user_id}/:
+    $ref: 'users/detail.yaml'
+
+  /users/{user_id}/institutions/:
+    $ref: 'users/institutions_list.yaml'
+
+  /users/{user_id}/nodes/:
+    $ref: 'users/nodes_list.yaml'
+
+  /users/{user_id}/preprints/:
+    $ref: 'users/preprints_list.yaml'
+
+  /users/{user_id}/registrations/:
+    $ref: 'users/registrations_list.yaml'
+
+  #############
+  #   WIKIS   #
+  #############
+
+  /wikis/{wiki_id}/:
+    $ref: 'wikis/detail.yaml'
+
+  /wikis/{wiki_id}/content/:
+    $ref: 'wikis/content.yaml'
