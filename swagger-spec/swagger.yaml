@@ -70,6 +70,16 @@ paths:
         - Base
       operationId: base_read
 
+  #################
+  #   CITATIONS   #
+  #################
+
+  /citations/styles/:
+    $ref: 'citations/style_list.yaml'
+
+  /citations/styles/{style_id}/:
+      $ref: 'citations/style_detail.yaml'
+
   ################
   #   COMMENTS   #
   ################
@@ -82,6 +92,29 @@ paths:
 
   # /comments/{comment_id}/reports/{user_id}/:
   #   $ref: 'comments/report_detail.yaml'
+
+  #############
+  #   FILES   #
+  #############
+
+  /files/{file_id}/:
+    $ref: 'files/detail.yaml'
+
+  /files/{file_id}/versions/:
+    $ref: 'files/versions_list.yaml'
+
+  /files/{file_id}/versions/{version_id}/:
+    $ref: 'files/version_detail.yaml'
+
+  #################
+  #    LICENSES   #
+  #################
+
+  /licenses/:
+    $ref: 'licenses/list.yaml'
+
+  /license/{license_id}/:
+    $ref: 'licenses/detail.yaml'
 
   ############
   #   LOGS   #
@@ -123,11 +156,23 @@ paths:
   /nodes/:
     $ref: 'nodes/list.yaml'
 
+  /nodes/{node_id}/:
+    $ref: 'nodes/detail.yaml'
+
   /nodes/{node_id}/children/:
     $ref: 'nodes/children_list.yaml'
 
+  /nodes/{node_id}/citation/:
+    $ref: 'nodes/citation_detail.yaml'
+
+  /nodes/{node_id}/citation/{style_id}/:
+    $ref: 'nodes/styled_citation_detail.yaml'
+
   /nodes/{node_id}/forks/:
     $ref: 'nodes/forks_list.yaml'
+
+  /nodes/{node_id}/preprints/:
+    $ref: 'nodes/preprints_list.yaml'
 
   #################
   #   PREPRINTS   #
@@ -144,3 +189,22 @@ paths:
 
   /preprints/{preprint_id}/citation/{style_id}/:
     $ref: 'preprints/citation_style_detail.yaml'
+
+  ##########################
+  #   PREPRINT PROVIDERS   #
+  ##########################
+
+  /preprint_providers/:
+    $ref: 'preprint_providers/list.yaml'
+
+  /preprint_providers/{preprint_provider_id}/:
+    $ref: 'preprint_providers/detail.yaml'
+
+  /preprint_providers/{preprint_provider_id}/preprints/:
+    $ref: 'preprint_providers/preprints_list.yaml'
+
+  /preprint_providers/{preprint_provider_id}/taxonomies/:
+    $ref: 'preprint_providers/taxonomies_list.yaml'
+
+  /preprint_providers/{preprint_provider_id}/licenses/:
+    $ref: 'preprint_providers/licenses_list.yaml'
